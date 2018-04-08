@@ -14,7 +14,7 @@ import { CFG_HTTP } from '../cfg/cfg_http';
 
 const LinksTable = (props) => {
     const links = props.links.map((link) => {
-        let shortUrl = `"${CFG_HTTP.URL_BASE}${link.shortLink}"`
+        let shortUrl = `${CFG_HTTP.URL_BASE}${link.shortLink}`
         return (
             <TableRow key={link.id}>
                 <TableCell>{link.fullLink}</TableCell>
