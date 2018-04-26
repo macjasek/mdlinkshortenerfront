@@ -10,6 +10,8 @@ export class UtilsApi {
   }
 
   static post(path, params) {
+    console.log(path);
+    console.log(params);
     return UtilsApi.requestWithBody(path, 'POST', params);
   }
 
@@ -24,7 +26,12 @@ export class UtilsApi {
         'content-type': 'application/json'
       },
       mode: 'cors'
-    }).then(res => res.json());
+    }).then(
+      res => {
+        if (res.status === 204){return {}}
+        return res.json()
+      }
+    );
   }
 
   static requestWithBody(path, method, params) {
@@ -35,7 +42,10 @@ export class UtilsApi {
         'content-type': 'application/json'
       },
       mode: 'cors'
-    }).then(res => res.json());
+    }).then(res => {
+      if (res.status === 200){return {}}
+        return res.json()
+    });
   }
 
   static uriEncodeParams(params = {}) {
@@ -52,3 +62,5 @@ export class UtilsApi {
     return paramsStringified ? `?${paramsStringified}` : '';
   }
 }
+
+export default UtilsApi;

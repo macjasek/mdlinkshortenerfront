@@ -4,6 +4,8 @@ import Pagination from '../components/Pagination';
 import LinksTable from '../components/LinksTable';
 import { CFG_HTTP } from '../cfg/cfg_http';
 import { UtilsApi } from '../utils/utils_api';
+import { Link } from 'react-router-dom';
+import Icon from 'material-ui/Icon';
 
 class LinksContainer extends React.Component {
     handlePageChange = (pageNumber) => {
@@ -42,10 +44,20 @@ class LinksContainer extends React.Component {
     render () {
         return (
             <React.Fragment>
+                <div className="addlink">
+                    <div className="addlinkIcons">
+                        <Link to="/add">
+                            <Icon className='addlinkIcons-icon'>
+                                add
+                            </Icon>
+                        </Link>
+                    </div>
+                </div>
                 <Pagination currentPage = {this.state.currentPage}
                             pagesLimit = {this.state.pagesLimit}
                             onPageChange = {this.handlePageChange} />
-                <LinksTable links={this.state.links} />
+                <LinksTable links={this.state.links} 
+                            fetchLinks={this.fetchLinks}/>
             </React.Fragment>
         );
     }
