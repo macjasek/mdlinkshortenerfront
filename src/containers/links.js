@@ -7,7 +7,7 @@ import { CFG_HTTP } from '../cfg/cfg_http';
 import { UtilsApi } from '../utils/utils_api';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as pageActions from '../actions/pageActions';
+import * as linksActions from '../actions/linksActions';
 
 class LinksContainerStub extends React.Component {
 
@@ -76,7 +76,7 @@ function mapStateToProps (state, ownProps) {
 
 function mapDispatchToProps(dispatch){
     return {
-        actions: bindActionCreators(pageActions, dispatch)
+        actions: bindActionCreators(linksActions, dispatch)
     };
 }
 

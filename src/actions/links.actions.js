@@ -1,1 +1,0 @@
-export const LINKS_LOADED = 'LINKS_LOADED';
